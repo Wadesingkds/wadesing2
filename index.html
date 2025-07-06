@@ -93,6 +93,12 @@
 </head>
 <body>
 
+    <noscript>
+      <div style="color: red; text-align: center;">
+        This site requires JavaScript to work. Please enable JavaScript.
+      </div>
+    </noscript>
+
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -768,12 +774,14 @@
             const shotTypeSelect = document.getElementById('shotType');
             shotTypeSelect.addEventListener('change', updateShotSuggestions);
             document.getElementById('addDialogueBtn').addEventListener('click', () => addDialogueEntry());
+            document.getElementById('cineTone').addEventListener('change', updateToneLightingSuggestion);
+
+            // Set a default tone and update dependent fields on load
+            document.getElementById('cineTone').value = 'Frustrated';
 
             // Initial update in case a default value is selected
             updateShotSuggestions();
             updateToneLightingSuggestion(); // Call this on load to set initial values
             addDialogueEntry(); // Add the first empty dialogue entry dynamically
         });
-
-        document.getElementById('cineTone').addEventListener('change', updateToneLightingSuggestion);
      </script>
